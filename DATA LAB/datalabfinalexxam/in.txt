@@ -1,0 +1,11 @@
+10 15
+XXXXXXXXXXXXXXX
+X-------------X
+X-------------X
+X-------------X
+XS..A.--------X
+X----.--------X
+X----.--------X
+X----CB..NM.O-X
+X-----------E-X
+XXXXXXXXXXXXXXX

@@ -1,0 +1,105 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct list
+{
+    struct node *head;
+    int len;
+    list()
+    {
+        head=new node;
+        head->next=NULL;
+        len=0;
+    }
+    void insert(node *x)
+    {
+           x->next=head->next;
+           head->next=x;
+           len++;
+    }
+    void show()
+    {
+        node *cur=head;
+        while(cur->next!= NULL)
+        {
+            printf("%d ",cur->next->data);
+            cur=cur->next;
+        }
+    }
+    node *search(int value)
+    {
+       node *cur=head;
+        while(cur->next!=NULL)
+        {
+            if(cur->next->data==value)
+            {
+                return cur;
+            }
+            cur=cur->next;
+        }
+        return NULL;
+    }
+    void length()
+    {
+        printf("%d",len);
+    }
+};
+int main()
+{
+    int a,c;
+    list ob;
+    node *y;
+
+    while(1)
+    {
+
+        printf("\n\n\nMenu:\n1.Insert.\n2.Show.\n3.Search.\n4.Length.\n5.Exit\n\n\n\n");
+        scanf("%d",&c);
+    if(c==1)
+    {
+        printf("Enter ur wanted value which u want to insert: ");
+        scanf("%d",&a);
+        y=new node;
+        y->data=a;
+        ob.insert(y);
+
+    }
+    else if(c==2)
+    {
+        ob.show();
+    }
+    else if(c==3)
+    {
+        printf("Enter the value which u want to search: ");
+        scanf("%d",&a);
+        y=ob.search(a);
+        if(y==NULL)
+        {
+            printf("Not found");
+        }
+        else
+        {
+            printf("found data %d",y->data);
+        }
+    }
+    else if(c==4)
+    {
+        ob.length();
+    }
+    else if(c==5)
+    {
+        exit(0);
+    }
+    else
+    {
+        printf("Wrong Input");
+    }
+
+    }
+}
+

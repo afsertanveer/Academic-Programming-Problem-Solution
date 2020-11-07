@@ -1,0 +1,90 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    node *next;
+};
+struct list
+{
+    int len;
+    node *head;
+    list ()
+    {
+        head=new node;
+        head->next=NULL;
+        len=0;
+    }
+    ~list()
+    {
+        delete head;
+    }
+    void insertatbgng(node *x)
+    {
+      x->next=head->next;
+      head->next=x;
+      len++;
+    }
+    void insertatend(node *x)
+    {
+        node *cur=head;
+        while(cur->next!=NULL)
+        {
+            cur=cur->next;
+        }
+        x->next=cur->next;
+        cur->next=x;
+    }
+    void insertatmid(node *x,int value)
+    {
+        node *cur=head;
+        while(cur->next!=NULL)
+        {
+            if(cur->data=value)
+            {
+                break;
+            }
+            prev=cur;
+            cur=cur->next;
+        }
+        x->next=prev->next;
+        prev->next=x;
+    }
+    void remov(int value)
+    {
+        node *cur=head;
+        while(cur->next!=NULL)
+        {
+            if(cur->next->data==value)
+            {
+                break;
+            }
+            cur=cur->next;
+        }
+        node *x=cur;
+        node *y=cur->next;
+        node *z=cur->next->next;
+        x->next=z;
+        delete(y);
+    }
+    void sum()
+    {
+        int sum=0;
+        node *cur=head;
+        while(cur->next!=NULL)
+        {
+            sum=sum+(cur->next->data);
+        }
+    }
+};
+int main()
+{
+    printf("MENU\n");
+    printf("1.Insert at beggining\n");
+    printf("2.Insert at end\n");
+    printf("3.Insert at middle\n");
+    printf("4.Remove\n");
+    printf("5.Show\n");
+    printf("6.Search\n");
+}

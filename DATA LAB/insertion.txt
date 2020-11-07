@@ -1,0 +1,46 @@
+#include<stdio.h>
+void input(float a[],int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        scanf("%f",&a[i]);
+    }
+}
+void output(float a[],int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("%f\n",a[i]);
+    }
+}
+void sort(float a[],int n)
+{
+
+    int i,j;
+    float temp;
+    for(i=1;i<n;i++)
+    {
+        temp=a[i];
+        j=i-1;
+        while(j>=0 && a[j]>temp)
+        {
+            a[j+1]=a[j];
+            j--;
+        }
+        a[j+1]=temp;
+    }
+
+}
+int main()
+{
+    freopen("in1.txt","r",stdin);
+    freopen("out.txt","w",stdout);
+    int n;
+    float a[100];
+    scanf("%d",&n);
+    input(a,n);
+    sort(a,n);
+    output(a,n);
+}
